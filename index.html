@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Qlik Field Marketing · Prompt Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="hero">
+<div class="hero-contrail">
+<span class="hero-contrail-line"></span>
+<span class="hero-contrail-line"></span>
+<span class="hero-contrail-line"></span>
+<span class="hero-contrail-line"></span>
+<span class="hero-contrail-line"></span>
+</div>
+<div class="hero-inner">
+<div class="hero-eyebrow">Qlik · Field Marketing · Prompt Deck v5</div>
+<h1>Twenty-one prompts.<br/>Four operational tiers.<br/>One <em>playbook</em>.</h1>
+<div class="hero-usage">
+<div><h4>Browse</h4><p>Select <strong>Execute, Optimise, Orchestrate or Strategise</strong> to load the matching front cards.</p></div>
+<div><h4>Flip</h4><p>Click or tap a card to reveal the back. Use the circular X to return to the front.</p></div>
+<div><h4>Copy</h4><p>Use the Copy button on the back of each card to grab the prompt instantly.</p></div>
+</div>
+</div>
+</header>
+<section aria-label="Build Your Play" class="play-builder">
+<div class="play-builder-head">
+<div>
+<div class="play-builder-kicker">Interactive mode</div>
+<h2 class="play-builder-title">Build Your Play</h2>
+<p class="play-builder-sub">Select 2 or 3 cards to assemble a reusable prompt stack, or load one of the curated field marketing workflows below. Guided workflows are grouped by Launch, Engage and Optimise, and they ask for shared campaign inputs only once.</p>
+</div>
+	<div class="language-note">Copied prompts will automatically append a localisation instruction based on the selected output language below.</div>
+<div class="play-builder-actions"><select aria-label="Output language and regional variant" class="language-select" id="language-select"><option value="en-GB" selected>British English (Default)</option><option value="en-US">American English</option><option value="fr-FR">French</option><option value="de-DE">German</option><option value="it-IT">Italian</option><option value="ja-JP">Japanese</option><option value="pt-BR">Portuguese (Brazil)</option><option value="es-ES">Spanish (Spain)</option><option value="es-LATAM">Spanish (LATAM)</option></select><select aria-label="Curated workflows for field marketers" class="workflow-select" id="workflow-select"><option value="">Choose a workflow</option><optgroup label="Launch"><option value="campaign-launch-stack">Campaign Launch Stack</option><option value="event-promotion-sprint">Event Promotion Sprint</option><option value="campaign-localisation-sprint">Campaign Localisation Sprint</option><option value="executive-event-briefing-pack">Executive Event Briefing Pack</option><option value="campaign-differentiation-sprint">Campaign Differentiation Sprint</option></optgroup><optgroup label="Engage"><option value="abx-outreach-play">ABX Outreach Play</option><option value="content-repurposing-engine">Content Repurposing Engine</option><option value="post-event-pipeline-builder">Post-Event Pipeline Builder</option><option value="thought-leadership-engine">Thought Leadership Engine</option></optgroup><optgroup label="Optimise"><option value="seo-content-optimisation-loop">SEO Content Optimisation Loop</option></optgroup></select><button class="play-btn" id="load-workflow-btn" type="button">Load workflow</button><button class="play-btn" id="clear-play-btn" type="button">Clear selection</button><button class="play-btn accent" disabled="" id="generate-play-btn" type="button">Generate play</button></div>
+</div>
+		
+	
+	
+<div class="play-start">
+<div class="play-start-copy">
+<div class="play-start-kicker">Start here</div>
+<div class="play-start-title">Campaign Launch Stack is pre-selected for first-time users.</div>
+<div class="play-start-sub">Use it as the default path to build an email, tighten the landing page and sharpen the subject line in one guided play.</div>
+</div>
+	
+<div class="play-start-actions">
+<button class="play-btn accent" id="start-play-btn" type="button">Generate my first play</button>
+<div class="play-mini-note">Recommended first workflow</div>
+</div>
+</div>
+<div class="play-builder-grid">
+<div class="play-panel">
+<div class="play-panel-label">
+<span>Selected cards</span>
+<span id="play-count">0 / 3 selected</span>
+</div>
+<div class="play-selected" id="play-selected">
+<div class="play-empty">Choose up to 3 cards from the deck or load a guided workflow. The strongest plays usually combine one creation card, one refinement card and one scale or challenge card.</div>
+</div>
+<div aria-live="polite" class="combo-banner" id="combo-banner">
+<div>
+<div class="combo-kicker">Combo unlocked</div>
+<div class="combo-title" id="combo-title">Campaign Launch Stack</div>
+<div class="combo-text" id="combo-text">A practical sequence for moving from asset creation to sharper launch execution.</div>
+</div>
+<div class="combo-badge">Strong play</div>
+</div>
+</div>
+<div class="play-panel play-output-wrap">
+<div class="play-toolbar">
+<div>
+<div class="play-panel-label" style="margin-bottom:6px;"><span>Generated prompt</span></div>
+<div class="play-status" id="play-status">Build a play, then copy it into ChatGPT.</div>
+</div>
+<div class="play-utility-row">
+<button class="play-btn" id="toggle-example-btn" type="button">What you will get</button>
+<!-- <button class="play-btn" disabled="" id="copy-with-inputs-btn" type="button">Copy with inputs</button> -->
+<button class="play-btn primary play-copy" disabled="" id="copy-play-btn" type="button">Copy play</button>
+</div>
+</div>
+<div class="play-output" id="play-output"><span class="play-output-placeholder">Your combined play will appear here.<br /><br />AI is a powerful assistant, not a source of truth. Always sense-check outputs before using them externally. In your follow-up conversation with AI, you can also ask:<br />
+&mdash; What assumptions are you making?<br />
+&mdash; What information is missing?<br />
+&mdash; Challenge this and suggest a stronger version.<br />
+</span>	
+</div>
+<textarea class="sr-only" id="play-output-text" readonly=""></textarea>
+<textarea class="sr-only" id="play-output-with-inputs-text" readonly=""></textarea>
+<div class="play-example-wrap">
+<div class="play-example" id="play-example">
+<div class="play-example-label">Illustrative Snippet</div>
+<pre id="play-example-text">Select a workflow to preview a realistic example.</pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!--	
+<div class="deck"><header class="deck-header">
+<div class="deck-eyebrow">Qlik · Field Marketing</div>
+<h1 class="deck-title">Prompt Deck</h1>
+<p class="deck-sub">A working library of prompt cards for everyday field marketing execution. Each card is a reusable play: pick the one that matches the task, copy the prompt, run it. Levels rise from tactical execution (L1) to strategic foundation work (L4).</p>
+</header>
+-->
+<svg aria-hidden="true" height="0" style="position:absolute" width="0">
+<defs>
+<lineargradient id="trail-a" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#10CFC9" stop-opacity="0"></stop>
+<stop offset="30%" stop-color="#10CFC9" stop-opacity=".85"></stop>
+<stop offset="70%" stop-color="#009845" stop-opacity=".9"></stop>
+<stop offset="100%" stop-color="#009845" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="trail-b" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#10CFC9" stop-opacity="0"></stop>
+<stop offset="50%" stop-color="#10CFC9" stop-opacity=".55"></stop>
+<stop offset="100%" stop-color="#10CFC9" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="trail-c" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#009845" stop-opacity="0"></stop>
+<stop offset="50%" stop-color="#009845" stop-opacity=".7"></stop>
+<stop offset="100%" stop-color="#009845" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="back-trail-a" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#10CFC9" stop-opacity="0"></stop>
+<stop offset="50%" stop-color="#10CFC9" stop-opacity=".6"></stop>
+<stop offset="100%" stop-color="#009845" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="back-trail-b" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#009845" stop-opacity="0"></stop>
+<stop offset="60%" stop-color="#009845" stop-opacity=".5"></stop>
+<stop offset="100%" stop-color="#009845" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg><section aria-label="Prompt deck levels" class="tabs-shell"><div aria-label="Prompt deck levels" class="tabs-bar" role="tablist"><button aria-controls="panel-1" aria-selected="true" class="tab-btn active" data-tab="1" id="tab-1" role="tab">
+<span aria-hidden="true" class="tab-dot"></span>
+<span class="tab-copy"><span class="tab-kicker">L1 | <strong style="font-weight: extra bolder;">Execute</strong></span></span>
+</button><button aria-controls="panel-2" aria-selected="false" class="tab-btn" data-tab="2" id="tab-2" role="tab">
+<span aria-hidden="true" class="tab-dot"></span>
+<span class="tab-copy"><span class="tab-kicker">L2 | <strong style="font-weight: extra bolder;">Optimise</strong></span>
+</span></button><button aria-controls="panel-3" aria-selected="false" class="tab-btn" data-tab="3" id="tab-3" role="tab">
+<span aria-hidden="true" class="tab-dot"></span>
+<span class="tab-copy"><span class="tab-kicker">L3 | <strong style="font-weight: extra bolder;">Orchestrate</strong></span>
+</span></button><button aria-controls="panel-4" aria-selected="false" class="tab-btn" data-tab="4" id="tab-4" role="tab">
+<span aria-hidden="true" class="tab-dot"></span>
+<span class="tab-copy"><span class="tab-kicker">L4 | <strong style="font-weight: extra bolder;">Strategise</strong></span></span>
+</button></div><div aria-labelledby="tab-1" class="tab-panel active" id="panel-1" role="tabpanel">
+<div class="tab-panel-head" data-level="1">
+<div>
+<div class="level-chip"><span class="dot"></span> L1 — Execute</div>
+<h2 class="tab-panel-title" style="padding-top:25px;">Execute</h2>
+<p class="tab-panel-sub">Tactical plays for day-to-day output</p>
+</div>
+<div class="tab-panel-count">5 Cards</div>
+</div>
+<div class="cards-grid cards-grid--interactive"><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="1" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="28" y2="28"></line>
+<line stroke="url(#trail-a)" stroke-width="2.2" x1="80" x2="780" y1="46" y2="46"></line>
+<line stroke="url(#trail-c)" stroke-width="1.4" x1="40" x2="640" y1="62" y2="62"></line>
+<line stroke="url(#trail-b)" stroke-width="1" x1="160" x2="800" y1="78" y2="78"></line>
+<line stroke="url(#trail-a)" stroke-width="1.6" x1="0" x2="560" y1="94" y2="94"></line>
+<line stroke="url(#trail-b)" stroke-width="0.8" x1="240" x2="760" y1="110" y2="110"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="30" y2="30"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="760" y1="50" y2="50"></line>
+<line stroke="url(#trail-c)" stroke-width="1.2" x1="120" x2="700" y1="70" y2="70"></line>
+<line stroke="url(#trail-b)" stroke-width="0.9" x1="0" x2="620" y1="90" y2="90"></line>
+<line stroke="url(#trail-a)" stroke-width="1.4" x1="180" x2="800" y1="110" y2="110"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L1 — Execute</span></div>
+<div class="type-pill">Social</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 01</div>
+<h1 class="title">LinkedIn<span class="line2">Post Engine</span></h1>
+<p class="subtitle">Promote events and campaigns through employee advocacy.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<circle cx="62" cy="80" fill="none" r="48" stroke="rgba(16,207,201,.25)" stroke-width="1"></circle>
+<circle cx="62" cy="80" fill="none" r="34" stroke="rgba(16,207,201,.32)" stroke-width="1"></circle>
+<circle cx="62" cy="80" fill="none" r="20" stroke="rgba(16,207,201,.55)" stroke-width="1"></circle>
+<circle cx="62" cy="80" fill="#10CFC9" r="7.5"></circle>
+<path d="M 74 72 Q 125 50 175 46" fill="none" stroke="#10CFC9" stroke-dasharray="2 3" stroke-opacity=".55" stroke-width="1"></path>
+<path d="M 72 80 Q 130 72 195 80" fill="none" stroke="#009845" stroke-dasharray="2 3" stroke-opacity=".6" stroke-width="1"></path>
+<path d="M 74 88 Q 135 102 185 108" fill="none" stroke="#10CFC9" stroke-dasharray="2 3" stroke-opacity=".55" stroke-width="1"></path>
+<g transform="translate(170,28)">
+<rect fill="rgba(255,255,255,0.06)" height="34" rx="4" stroke="#10CFC9" stroke-opacity=".5" stroke-width="0.8" width="82"></rect>
+<rect fill="#10CFC9" height="3" opacity=".75" rx="1.5" width="38" x="8" y="8"></rect>
+<rect fill="rgba(255,255,255,0.4)" height="2" rx="1" width="62" x="8" y="15"></rect>
+<rect fill="rgba(255,255,255,0.28)" height="2" rx="1" width="50" x="8" y="20"></rect>
+</g>
+<g transform="translate(180,62)">
+<rect fill="rgba(255,255,255,0.05)" height="34" rx="4" stroke="#009845" stroke-opacity=".55" stroke-width="0.8" width="82"></rect>
+<rect fill="#009845" height="3" opacity=".8" rx="1.5" width="32" x="8" y="8"></rect>
+<rect fill="rgba(255,255,255,0.3)" height="2" rx="1" width="62" x="8" y="15"></rect>
+<rect fill="rgba(255,255,255,0.22)" height="2" rx="1" width="46" x="8" y="20"></rect>
+</g>
+<g transform="translate(175,96)">
+<rect fill="rgba(255,255,255,0.04)" height="34" rx="4" stroke="#10CFC9" stroke-opacity=".35" stroke-width="0.8" width="82"></rect>
+<rect fill="#10CFC9" height="3" opacity=".55" rx="1.5" width="42" x="8" y="8"></rect>
+<rect fill="rgba(255,255,255,0.24)" height="2" rx="1" width="62" x="8" y="15"></rect>
+<rect fill="rgba(255,255,255,0.18)" height="2" rx="1" width="42" x="8" y="20"></rect>
+</g>
+<path d="M 10 145 L 42 145" stroke="#10CFC9" stroke-opacity=".6" stroke-width="1"></path>
+<path d="M 38 142 L 42 145 L 38 148" fill="none" stroke="#10CFC9" stroke-opacity=".6" stroke-width="1"></path>
+<text fill="#10CFC9" fill-opacity=".85" font-family="Inter" font-size="7.5" font-weight="600" letter-spacing="1.4" x="48" y="148">1 IDEA → N POSTS</text>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Turn one idea into high-performing LinkedIn posts.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 01/21</span></div>
+<div class="rarity">Common</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="1"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">LinkedIn Post Engine</div>
+<div class="back-meta">L1 · Execute</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button aria-label="Copy prompt" class="copy-btn" data-target="p01">
+<svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg>
+<span>Copy</span>
+</button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a senior field marketer writing on LinkedIn.
+
+Write a post to promote <span class="var">[event/campaign]</span>.
+
+Audience: <span class="var">[persona]</span>
+Goal: drive registrations or engagement
+
+<span class="tok">Constraints:</span>
+– Strong opening hook (first line must stop scrolling)
+– 1 clear insight (not generic)
+– Natural CTA
+– Max 100 words
+– No buzzwords
+
+Write <span class="tok">3 variations</span> with different hooks.</div>
+<textarea class="sr-only" id="p01" readonly="">Act as a senior field marketer writing on LinkedIn.
+
+Write a post to promote [event/campaign].
+
+Audience: [persona]
+Goal: drive registrations or engagement
+
+Constraints:
+- Strong opening hook (first line must stop scrolling)
+- 1 clear insight (not generic)
+- Natural CTA
+- Max 100 words
+- No buzzwords
+
+Write 3 variations with different hooks.</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>The first line determines performance.</li>
+<li>Focus on one insight, not multiple ideas.</li>
+<li>Always test multiple versions before posting.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L2</strong>
+                  Ask for 3 different tones: bold, neutral, contrarian.
+                </div>
+</div>
+</div>
+</div></div></div></div><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="1" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="30" y2="30"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="780" y1="48" y2="48"></line>
+<line stroke="url(#trail-c)" stroke-width="1.3" x1="20" x2="620" y1="66" y2="66"></line>
+<line stroke="url(#trail-b)" stroke-width="1" x1="140" x2="800" y1="82" y2="82"></line>
+<line stroke="url(#trail-a)" stroke-width="1.4" x1="0" x2="540" y1="100" y2="100"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="60" y2="60"></line>
+<line stroke="url(#trail-c)" stroke-width="1.1" x1="100" x2="660" y1="82" y2="82"></line>
+<line stroke="url(#trail-b)" stroke-width="0.9" x1="0" x2="580" y1="100" y2="100"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L1 — Execute</span></div>
+<div class="type-pill">Email</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 02</div>
+<h1 class="title">Email<span class="line2">Builder</span></h1>
+<p class="subtitle">Create campaign emails — Touch 1, Touch 2, Touch 3 — that actually read well.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Envelope with content flow -->
+<rect fill="none" height="72" rx="4" stroke="#10CFC9" stroke-opacity=".7" stroke-width="1.5" width="110" x="40" y="50"></rect>
+<path d="M 40 54 L 95 88 L 150 54" fill="none" stroke="#10CFC9" stroke-linejoin="round" stroke-opacity=".7" stroke-width="1.5"></path>
+<!-- Outgoing content bars -->
+<line stroke="#009845" stroke-linecap="round" stroke-opacity=".85" stroke-width="2" x1="160" x2="230" y1="62" y2="62"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-opacity=".6" stroke-width="1.5" x1="160" x2="215" y1="72" y2="72"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-opacity=".8" stroke-width="1.5" x1="160" x2="240" y1="82" y2="82"></line>
+<line stroke="#009845" stroke-linecap="round" stroke-opacity=".55" stroke-width="1.3" x1="160" x2="210" y1="92" y2="92"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-opacity=".5" stroke-width="1.3" x1="160" x2="225" y1="102" y2="102"></line>
+<!-- Seal dot -->
+<circle cx="95" cy="88" fill="#009845" r="3"></circle>
+<!-- Touch indicators -->
+<g transform="translate(60,135)">
+<text fill="rgba(255,255,255,0.55)" font-family="Inter" font-size="7" font-weight="600" letter-spacing="1.5" x="0" y="0">TCH 1</text>
+<text fill="rgba(255,255,255,0.55)" font-family="Inter" font-size="7" font-weight="600" letter-spacing="1.5" x="36" y="0">TCH 2</text>
+<text fill="rgba(255,255,255,0.55)" font-family="Inter" font-size="7" font-weight="600" letter-spacing="1.5" x="72" y="0">TCH 3</text>
+</g>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Clear, high-converting emails without the fluff.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 02/21</span></div>
+<div class="rarity">Common</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="1"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Email Builder</div>
+<div class="back-meta">L1 · Execute</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p02"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a B2B field marketing expert.
+
+Write an email for <span class="var">[campaign/event]</span>.
+
+Audience: <span class="var">[persona]</span>
+Goal: <span class="var">[register / attend / engage]</span>
+<span class="tok">Constraints:</span>
+– Under 125 words
+– Clear subject line + preheader
+– Professional, understated tone
+– No fluff or hype
+
+<span class="tok">Structure:</span>
+– Opening: why this matters now
+– Middle: what they will get
+– Close: simple CTA</div>
+<textarea class="sr-only" id="p02" readonly="">Act as a B2B field marketing expert.
+
+Write an email for [campaign/event].
+
+Audience: [persona]
+Goal: [register / attend / engage]
+
+Constraints:
+- Under 125 words
+- Clear subject line + preheader
+- Professional, understated tone
+- No fluff or hype
+
+Structure:
+- Opening: why this matters now
+- Middle: what they will get
+- Close: simple CTA</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Subject line + preheader work as a pair.</li>
+<li>Cut anything that doesn't add value.</li>
+<li>Optimise for mobile reading.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L2</strong>
+                  Ask for "3 subject lines with rationale".
+                </div>
+</div>
+</div>
+</div></div></div></div>
+<div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="1" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="30" y2="30"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="780" y1="48" y2="48"></line>
+<line stroke="url(#trail-c)" stroke-width="1.3" x1="20" x2="620" y1="66" y2="66"></line>
+<line stroke="url(#trail-b)" stroke-width="1" x1="140" x2="800" y1="82" y2="82"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="60" y2="60"></line>
+<line stroke="url(#trail-c)" stroke-width="1.1" x1="100" x2="660" y1="82" y2="82"></line>
+</svg></div>
+<div class="front-frame"><div class="top-bar"><div class="level"><span class="level-dot"></span><span>L1 — Execute</span></div><div class="type-pill">Web</div></div>
+<div class="title-block"><div class="eyebrow">Play Card · 03</div><h1 class="title">Landing Page<span class="line2">Builder</span></h1><p class="subtitle">Build registration pages with sharper structure, clearer messaging and better conversion logic.</p></div>
+<div class="visual"><svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<rect fill="none" height="108" rx="8" stroke="#10CFC9" stroke-opacity=".75" stroke-width="1.4" width="202" x="34" y="26"></rect>
+<rect fill="#10CFC9" fill-opacity=".9" height="8" rx="3" width="92" x="50" y="42"></rect>
+<rect fill="rgba(255,255,255,.45)" height="3" rx="1.5" width="122" x="50" y="58"></rect>
+<rect fill="rgba(255,255,255,.28)" height="3" rx="1.5" width="110" x="50" y="66"></rect>
+<rect fill="rgba(255,255,255,.22)" height="3" rx="1.5" width="96" x="50" y="74"></rect>
+<rect fill="#009845" height="20" rx="10" width="66" x="50" y="92"></rect>
+<rect fill="none" height="20" rx="10" stroke="#10CFC9" stroke-opacity=".55" width="60" x="146" y="92"></rect>
+<path d="M 214 92 L 232 92 L 232 112" fill="none" stroke="#10CFC9" stroke-dasharray="3 3" stroke-opacity=".7"></path>
+<circle cx="232" cy="112" fill="#10CFC9" r="5"></circle>
+</svg></div>
+<div class="tagline"><div class="tagline-mark"></div><div class="tagline-text">Create landing pages that read clearly and guide action.</div></div>
+<div class="bottom-row"><div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 03/21</span></div><div class="rarity">Common</div></div><div class="card-hint">Tap to flip</div></div></div>
+<div class="card back card-face back-face" data-level="1"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail"><svg preserveaspectratio="none" viewbox="0 0 420 60"><line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line><line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line><line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line></svg></div>
+<div class="back-inner"><div class="back-head"><div class="back-title">Landing Page Builder</div><div class="back-meta">L1 · Execute</div></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Prompt</span><button class="copy-btn" data-target="p13"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button></div>
+<div class="prompt-box"><span class="tok">Act as</span> a B2B field marketer and conversion-focused web copywriter.
+
+Create landing page copy for <span class="var">[campaign / event]</span>.
+
+Audience: <span class="var">[persona]</span>
+Goal: <span class="var">[register / download / request a meeting]</span>
+<span class="tok">Deliver:</span>
+– Hero headline
+– Supporting subheadline
+– 3 benefit-led body sections
+– CTA copy
+– Form intro text
+
+Keep it clear, specific and free of hype.</div>
+<textarea class="sr-only" id="p13" readonly="">Act as a B2B field marketer and conversion-focused web copywriter.
+
+Create landing page copy for [campaign / event].
+
+Audience: [persona]
+Goal: [register / download / request a meeting]
+
+Deliver:
+- Hero headline
+- Supporting subheadline
+- 3 benefit-led body sections
+- CTA copy
+- Form intro text
+
+Keep it clear, specific and free of hype.</textarea></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Pro Tips</span></div><ul class="tips"><li>Lead with the outcome, not the format.</li><li>Keep the headline and CTA tightly aligned.</li><li>Write for the five-second skim.</li></ul></div>
+<div class="upgrade"><div class="upgrade-icon">↑</div><div class="upgrade-text"><strong>Upgrade → L2</strong> Ask for alternative hero sections for different personas.</div></div>
+</div></div></div></div></div>
+<div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="1" role="button" tabindex="0">
+<div class="contrail"><svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="30" y2="30"></line><line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="780" y1="48" y2="48"></line><line stroke="url(#trail-c)" stroke-width="1.3" x1="20" x2="620" y1="66" y2="66"></line></svg><svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="40" y2="40"></line><line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="60" y2="60"></line></svg></div>
+<div class="front-frame"><div class="top-bar"><div class="level"><span class="level-dot"></span><span>L1 — Execute</span></div><div class="type-pill">Event</div></div>
+<div class="title-block"><div class="eyebrow">Play Card · 04</div><h1 class="title">Webinar<span class="line2">Abstract Builder</span></h1><p class="subtitle">Shape session titles and abstracts that sound relevant, credible and worth attending.</p></div>
+<div class="visual"><svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="86" rx="6" stroke="#10CFC9" stroke-opacity=".75" stroke-width="1.4" width="124" x="48" y="34"></rect><rect fill="#10CFC9" height="4" rx="2" width="72" x="64" y="50"></rect><rect fill="rgba(255,255,255,.35)" height="3" rx="1.5" width="92" x="64" y="62"></rect><rect fill="rgba(255,255,255,.24)" height="3" rx="1.5" width="82" x="64" y="70"></rect><rect fill="rgba(255,255,255,.24)" height="3" rx="1.5" width="88" x="64" y="78"></rect><circle cx="204" cy="66" fill="none" r="20" stroke="#009845" stroke-opacity=".85" stroke-width="1.6"></circle><path d="M 194 66 L 202 74 L 216 58" fill="none" stroke="#009845" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></div>
+<div class="tagline"><div class="tagline-mark"></div><div class="tagline-text">Turn a topic into a session people actually want to join.</div></div>
+<div class="bottom-row"><div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 04/21</span></div><div class="rarity">Common</div></div><div class="card-hint">Tap to flip</div></div></div>
+<div class="card back card-face back-face" data-level="1"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button><div class="back-contrail"><svg preserveaspectratio="none" viewbox="0 0 420 60"><line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line><line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line><line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line></svg></div>
+<div class="back-inner"><div class="back-head"><div class="back-title">Webinar Abstract Builder</div><div class="back-meta">L1 · Execute</div></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Prompt</span><button class="copy-btn" data-target="p14"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button></div>
+<div class="prompt-box"><span class="tok">Act as</span> a B2B event marketer.
+
+Write webinar copy for <span class="var">[topic]</span>.
+
+Audience: <span class="var">[persona]</span>
+Format: <span class="var">[webinar / panel / fireside chat]</span>
+<span class="tok">Deliver:</span>
+– 5 session title options
+– 1 short abstract (50–70 words)
+– 3 learning points
+
+Make it credible, specific and relevant to senior attendees.</div>
+<textarea class="sr-only" id="p14" readonly="">Act as a B2B event marketer.
+
+Write webinar copy for [topic].
+
+Audience: [persona]
+Format: [webinar / panel / fireside chat]
+
+Deliver:
+- 5 session title options
+- 1 short abstract (50–70 words)
+- 3 learning points
+
+Make it credible, specific and relevant to senior attendees.</textarea></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Pro Tips</span></div><ul class="tips"><li>Start from the tension, not the session format.</li><li>Avoid generic claims like practical and actionable.</li><li>Check that the title and abstract tell the same story.</li></ul></div>
+<div class="upgrade"><div class="upgrade-icon">↑</div><div class="upgrade-text"><strong>Upgrade → L2</strong> Ask for options tailored to CDO, architect and business leader audiences.</div></div></div></div></div></div></div>
+<div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="1" role="button" tabindex="0">
+<div class="contrail"><svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="28" y2="28"></line><line stroke="url(#trail-a)" stroke-width="2.2" x1="80" x2="780" y1="46" y2="46"></line><line stroke="url(#trail-c)" stroke-width="1.4" x1="40" x2="640" y1="62" y2="62"></line></svg><svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line><line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="760" y1="60" y2="60"></line></svg></div>
+<div class="front-frame"><div class="top-bar"><div class="level"><span class="level-dot"></span><span>L1 — Execute</span></div><div class="type-pill">Email</div></div>
+<div class="title-block"><div class="eyebrow">Play Card · 05</div><h1 class="title">Sales Follow-Up<span class="line2">Builder</span></h1><p class="subtitle">Write concise follow-up emails that feel human and move the conversation forward.</p></div>
+<div class="visual"><svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg"><circle cx="62" cy="80" fill="none" r="18" stroke="#10CFC9" stroke-width="1.4"></circle><path d="M 50 82 Q 62 68 74 82" fill="none" stroke="#10CFC9" stroke-width="1.2"></path><line stroke="#009845" stroke-linecap="round" stroke-width="2" x1="98" x2="214" y1="62" y2="62"></line><line stroke="rgba(255,255,255,.4)" stroke-linecap="round" stroke-width="1.4" x1="98" x2="202" y1="76" y2="76"></line><line stroke="rgba(255,255,255,.28)" stroke-linecap="round" stroke-width="1.4" x1="98" x2="190" y1="90" y2="90"></line><path d="M 190 108 L 228 108" stroke="#10CFC9" stroke-width="1.5"></path><path d="M 222 104 L 228 108 L 222 112" fill="none" stroke="#10CFC9" stroke-width="1.5"></path></svg></div>
+<div class="tagline"><div class="tagline-mark"></div><div class="tagline-text">Keep momentum after a meeting, event or first conversation.</div></div>
+<div class="bottom-row"><div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 05/21</span></div><div class="rarity">Common</div></div><div class="card-hint">Tap to flip</div></div></div>
+<div class="card back card-face back-face" data-level="1"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button><div class="back-contrail"><svg preserveaspectratio="none" viewbox="0 0 420 60"><line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line><line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line><line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line></svg></div>
+<div class="back-inner"><div class="back-head"><div class="back-title">Sales Follow-Up Builder</div><div class="back-meta">L1 · Execute</div></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Prompt</span><button class="copy-btn" data-target="p15"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button></div>
+<div class="prompt-box"><span class="tok">Act as</span> a sales-aligned field marketer.
+
+Write a follow-up email after <span class="var">[meeting / booth conversation / event]</span>.
+
+Audience: <span class="var">[persona]</span>
+Context: <span class="var">[what was discussed]</span>
+<span class="tok">Include:</span>
+– Relevant opening line
+– 1 clear takeaway
+– 1 next step
+
+Keep it under 120 words and avoid generic sales language.</div>
+<textarea class="sr-only" id="p15" readonly="">Act as a sales-aligned field marketer.
+
+Write a follow-up email after [meeting / booth conversation / event].
+
+Audience: [persona]
+Context: [what was discussed]
+
+Include:
+- Relevant opening line
+- 1 clear takeaway
+- 1 next step
+
+Keep it under 120 words and avoid generic sales language.</textarea></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Pro Tips</span></div><ul class="tips"><li>Anchor the email in the actual discussion.</li><li>Offer one next step, not three.</li><li>Keep it useful enough to forward internally.</li></ul></div>
+<div class="upgrade"><div class="upgrade-icon">↑</div><div class="upgrade-text"><strong>Upgrade → L2</strong> Ask for versions for hot, warm and cold follow-up scenarios.</div></div></div></div></div></div></div>
+</div>
+</div><div aria-labelledby="tab-2" class="tab-panel" hidden="" id="panel-2" role="tabpanel">
+<div class="tab-panel-head" data-level="2">
+<div>
+<div class="level-chip"><span class="dot"></span> L2 — Optimise</div>
+<h2 class="tab-panel-title" style="padding-top:25px;">Optimise</h2>
+<p class="tab-panel-sub">Sharpen, refine, and pressure-test what exists</p>
+</div>
+<div class="tab-panel-count">8 Cards</div>
+</div>
+<div class="cards-grid cards-grid--interactive"><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="2" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="28" y2="28"></line>
+<line stroke="url(#trail-a)" stroke-width="2.2" x1="80" x2="780" y1="46" y2="46"></line>
+<line stroke="url(#trail-c)" stroke-width="1.4" x1="40" x2="640" y1="62" y2="62"></line>
+<line stroke="url(#trail-b)" stroke-width="1" x1="160" x2="800" y1="78" y2="78"></line>
+<line stroke="url(#trail-a)" stroke-width="1.6" x1="0" x2="560" y1="94" y2="94"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="760" y1="60" y2="60"></line>
+<line stroke="url(#trail-c)" stroke-width="1.2" x1="120" x2="700" y1="80" y2="80"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L2 — Optimise</span></div>
+<div class="type-pill">Email</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 06</div>
+<h1 class="title">Email<span class="line2">Optimiser</span></h1>
+<p class="subtitle">Improve existing campaign emails — clearer, sharper, executive-ready.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Before: scattered lines -->
+<g>
+<rect fill="none" height="90" rx="4" stroke="rgba(255,255,255,0.2)" stroke-dasharray="3 2" stroke-width="1" width="100" x="15" y="28"></rect>
+<line stroke="rgba(255,255,255,0.35)" stroke-width="1.2" x1="25" x2="95" y1="42" y2="42"></line>
+<line stroke="rgba(255,255,255,0.28)" stroke-width="1.2" x1="25" x2="105" y1="52" y2="52"></line>
+<line stroke="rgba(255,255,255,0.3)" stroke-width="1.2" x1="25" x2="80" y1="62" y2="62"></line>
+<line stroke="rgba(255,255,255,0.25)" stroke-width="1.2" x1="25" x2="100" y1="72" y2="72"></line>
+<line stroke="rgba(255,255,255,0.28)" stroke-width="1.2" x1="25" x2="88" y1="82" y2="82"></line>
+<line stroke="rgba(255,255,255,0.2)" stroke-width="1.2" x1="25" x2="95" y1="92" y2="92"></line>
+<line stroke="rgba(255,255,255,0.22)" stroke-width="1.2" x1="25" x2="75" y1="102" y2="102"></line>
+<text fill="rgba(255,255,255,0.5)" font-family="Inter" font-size="7" font-weight="600" letter-spacing="1.5" text-anchor="middle" x="65" y="22">BEFORE</text>
+</g>
+<!-- Arrow -->
+<path d="M 120 73 L 148 73" stroke="#10CFC9" stroke-opacity=".8" stroke-width="1.5"></path>
+<path d="M 142 69 L 148 73 L 142 77" fill="none" stroke="#10CFC9" stroke-opacity=".8" stroke-width="1.5"></path>
+<!-- After: tight aligned lines -->
+<g>
+<rect fill="none" height="66" rx="4" stroke="#10CFC9" stroke-opacity=".7" stroke-width="1.3" width="100" x="155" y="40"></rect>
+<line stroke="#009845" stroke-linecap="round" stroke-opacity=".9" stroke-width="2" x1="165" x2="235" y1="54" y2="54"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-opacity=".75" stroke-width="1.5" x1="165" x2="245" y1="66" y2="66"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-opacity=".65" stroke-width="1.5" x1="165" x2="225" y1="78" y2="78"></line>
+<line stroke="#009845" stroke-linecap="round" stroke-opacity=".6" stroke-width="1.5" x1="165" x2="210" y1="90" y2="90"></line>
+<text fill="#10CFC9" font-family="Inter" font-size="7" font-weight="600" letter-spacing="1.5" text-anchor="middle" x="205" y="34">AFTER</text>
+</g>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Turn average emails into sharp, executive-ready copy.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 06/21</span></div>
+<div class="rarity">Uncommon</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="2"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Email Optimiser</div>
+<div class="back-meta">L2 · Optimise</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p03"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a senior field marketer.
+
+Improve the email below.
+
+<span class="tok">Focus on:</span>
+– Clarity and flow
+– Removing unnecessary words
+– Strengthening value
+
+<span class="tok">Also provide:</span>
+– 3 improved subject lines
+– 1 alternative opening
+
+<span class="tok">Email:</span>
+<span class="var">[PASTE]</span></div>
+<textarea class="sr-only" id="p03" readonly="">Act as a senior field marketer.
+
+Improve the email below.
+
+Focus on:
+- Clarity and flow
+- Removing unnecessary words
+- Strengthening value
+
+Also provide:
+- 3 improved subject lines
+- 1 alternative opening
+
+Email:
+[PASTE]</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Most improvements come from cutting, not adding.</li>
+<li>Compare original vs rewritten version.</li>
+<li>Keep tone credible, not promotional.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L3</strong>
+                  Ask for "versions tailored to different personas".
+                </div>
+</div>
+</div>
+</div></div></div></div><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="2" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="30" y2="30"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="780" y1="48" y2="48"></line>
+<line stroke="url(#trail-c)" stroke-width="1.3" x1="20" x2="620" y1="66" y2="66"></line>
+<line stroke="url(#trail-b)" stroke-width="1" x1="140" x2="800" y1="82" y2="82"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="60" y2="60"></line>
+<line stroke="url(#trail-c)" stroke-width="1.1" x1="100" x2="660" y1="82" y2="82"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L2 — Optimise</span></div>
+<div class="type-pill">Social</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 07</div>
+<h1 class="title">Carousel<span class="line2">Creator</span></h1>
+<p class="subtitle">Structure ideas into LinkedIn PDF carousels that stop the scroll.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Four stacked slides -->
+<g>
+<rect fill="rgba(255,255,255,0.04)" height="96" rx="6" stroke="#10CFC9" stroke-opacity=".7" stroke-width="1.4" width="90" x="30" y="32"></rect>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-opacity=".9" stroke-width="2" x1="42" x2="88" y1="54" y2="54"></line>
+<line stroke="rgba(255,255,255,0.4)" stroke-width="1.2" x1="42" x2="108" y1="66" y2="66"></line>
+<line stroke="rgba(255,255,255,0.3)" stroke-width="1.2" x1="42" x2="96" y1="74" y2="74"></line>
+<text fill="#10CFC9" font-family="Inter" font-size="7" font-weight="700" letter-spacing="1.5" x="42" y="118">01 · HOOK</text>
+</g>
+<g transform="translate(16,8)">
+<rect fill="rgba(0,0,0,0.12)" height="96" rx="6" stroke="rgba(16,207,201,.45)" stroke-width="1.2" width="90" x="60" y="32"></rect>
+</g>
+<g transform="translate(32,16)">
+<rect fill="rgba(0,0,0,0.18)" height="96" rx="6" stroke="rgba(16,207,201,.3)" stroke-width="1" width="90" x="60" y="32"></rect>
+</g>
+<g transform="translate(48,24)">
+<rect fill="rgba(0,0,0,0.24)" height="96" rx="6" stroke="rgba(16,207,201,.2)" stroke-width="0.8" width="90" x="60" y="32"></rect>
+</g>
+<!-- Swipe arrow -->
+<path d="M 190 130 L 228 130" stroke="#009845" stroke-linecap="round" stroke-opacity=".9" stroke-width="1.5"></path>
+<path d="M 222 126 L 228 130 L 222 134" fill="none" stroke="#009845" stroke-linecap="round" stroke-opacity=".9" stroke-width="1.5"></path>
+<text fill="rgba(255,255,255,0.55)" font-family="Inter" font-size="6.5" font-weight="600" letter-spacing="1.5" x="190" y="144">SWIPE →</text>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Structure ideas into scroll-stopping visual stories.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 07/21</span></div>
+<div class="rarity">Uncommon</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="2"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Carousel Creator</div>
+<div class="back-meta">L2 · Optimise</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p05"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a LinkedIn content expert.
+
+Create a 4-slide carousel:
+
+Slide 1: Hook (signal)
+Slide 2: Insight
+Slide 3: Implication or tension
+Slide 4: CTA
+
+Topic: <span class="var">[topic]</span>
+Audience: <span class="var">[persona]</span>
+
+Keep each slide under 20 words.
+Make it sharp and specific.</div>
+<textarea class="sr-only" id="p05" readonly="">Act as a LinkedIn content expert.
+
+Create a 4-slide carousel:
+
+Slide 1: Hook (signal)
+Slide 2: Insight
+Slide 3: Implication or tension
+Slide 4: CTA
+
+Topic: [topic]
+Audience: [persona]
+
+Keep each slide under 20 words.
+Make it sharp and specific.</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Slide 1 must create curiosity.</li>
+<li>One idea per slide.</li>
+<li>Avoid generic corporate language.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L3</strong>
+                  Ask for "3 alternative hooks for Slide 1".
+                </div>
+</div>
+</div>
+</div></div></div></div><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="2" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="32" y2="32"></line>
+<line stroke="url(#trail-a)" stroke-width="2.2" x1="100" x2="780" y1="50" y2="50"></line>
+<line stroke="url(#trail-c)" stroke-width="1.3" x1="40" x2="660" y1="68" y2="68"></line>
+<line stroke="url(#trail-b)" stroke-width="1" x1="0" x2="580" y1="86" y2="86"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="60" y2="60"></line>
+<line stroke="url(#trail-c)" stroke-width="1.2" x1="120" x2="700" y1="80" y2="80"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L2 — Optimise</span></div>
+<div class="type-pill">Event</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 08</div>
+<h1 class="title">Event<span class="line2">Follow-Up</span></h1>
+<p class="subtitle">Post-event messaging that keeps momentum, not just gratitude.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Event anchor -->
+<circle cx="55" cy="80" fill="none" r="20" stroke="#10CFC9" stroke-opacity=".8" stroke-width="1.5"></circle>
+<circle cx="55" cy="80" fill="#009845" r="6"></circle>
+<text fill="rgba(255,255,255,0.6)" font-family="Inter" font-size="7" font-weight="700" letter-spacing="1.5" text-anchor="middle" x="55" y="118">EVENT</text>
+<!-- Timeline forward -->
+<line stroke="rgba(255,255,255,0.2)" stroke-dasharray="2 3" stroke-width="1" x1="80" x2="250" y1="80" y2="80"></line>
+<!-- Follow-up touchpoints -->
+<circle cx="130" cy="80" fill="#10CFC9" r="4"></circle>
+<circle cx="180" cy="80" fill="#10CFC9" fill-opacity=".7" r="4"></circle>
+<circle cx="230" cy="80" fill="#10CFC9" fill-opacity=".5" r="4"></circle>
+<!-- Arrow forward -->
+<path d="M 240 80 L 252 80" stroke="#10CFC9" stroke-width="1.5"></path>
+<path d="M 246 76 L 252 80 L 246 84" fill="none" stroke="#10CFC9" stroke-width="1.5"></path>
+<!-- Day labels -->
+<text fill="rgba(255,255,255,0.55)" font-family="Inter" font-size="6.5" font-weight="600" letter-spacing="1.2" text-anchor="middle" x="130" y="100">D+1</text>
+<text fill="rgba(255,255,255,0.5)" font-family="Inter" font-size="6.5" font-weight="600" letter-spacing="1.2" text-anchor="middle" x="180" y="100">D+3</text>
+<text fill="rgba(255,255,255,0.45)" font-family="Inter" font-size="6.5" font-weight="600" letter-spacing="1.2" text-anchor="middle" x="230" y="100">D+7</text>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Extend event impact beyond the room.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 08/21</span></div>
+<div class="rarity">Uncommon</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="2"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Event Follow-Up</div>
+<div class="back-meta">L2 · Optimise</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p07"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a field marketer.
+
+Write a post-event follow-up email.
+
+Context: <span class="var">[event]</span>
+Audience: <span class="var">[persona]</span>
+<span class="tok">Include:</span>
+– Acknowledge event context
+– 1 key takeaway
+– Next step (resource or meeting)
+
+Keep it conversational and relevant.</div>
+<textarea class="sr-only" id="p07" readonly="">Act as a field marketer.
+
+Write a post-event follow-up email.
+
+Context: [event]
+Audience: [persona]
+
+Include:
+- Acknowledge event context
+- 1 key takeaway
+- Next step (resource or meeting)
+
+Keep it conversational and relevant.</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Reference what they experienced.</li>
+<li>Avoid generic "thank you" emails.</li>
+<li>Offer one clear next step.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L3</strong>
+                  Segment by attendee vs no-show.
+                </div>
+</div>
+</div>
+</div></div></div></div><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="2" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="30" y2="30"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="780" y1="50" y2="50"></line>
+<line stroke="url(#trail-c)" stroke-width="1.3" x1="20" x2="620" y1="70" y2="70"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="60" y2="60"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L2 — Optimise</span></div>
+<div class="type-pill">Analytics</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 09</div>
+<h1 class="title">Performance<span class="line2">Analyser</span></h1>
+<p class="subtitle">Understand why content performs — or doesn't — and improve it.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Axis -->
+<line stroke="rgba(255,255,255,0.25)" stroke-width="1" x1="35" x2="240" y1="130" y2="130"></line>
+<line stroke="rgba(255,255,255,0.25)" stroke-width="1" x1="35" x2="35" y1="30" y2="130"></line>
+<!-- Bars rising -->
+<rect fill="rgba(16,207,201,0.35)" height="30" width="18" x="50" y="100"></rect>
+<rect fill="rgba(16,207,201,0.5)" height="45" width="18" x="75" y="85"></rect>
+<rect fill="rgba(16,207,201,0.4)" height="35" width="18" x="100" y="95"></rect>
+<rect fill="rgba(16,207,201,0.65)" height="60" width="18" x="125" y="70"></rect>
+<rect fill="rgba(16,207,201,0.55)" height="50" width="18" x="150" y="80"></rect>
+<rect fill="#10CFC9" fill-opacity=".85" height="75" width="18" x="175" y="55"></rect>
+<rect fill="#009845" fill-opacity=".9" height="85" width="18" x="200" y="45"></rect>
+<!-- Trend line -->
+<path d="M 59 105 L 84 92 L 109 100 L 134 80 L 159 88 L 184 65 L 209 52" fill="none" stroke="#009845" stroke-linecap="round" stroke-opacity=".9" stroke-width="1.5"></path>
+<circle cx="209" cy="52" fill="#009845" r="3.5"></circle>
+<!-- Score badge -->
+<g transform="translate(220,30)">
+<circle fill="#10CFC9" r="12"></circle>
+<text fill="#19426C" font-family="Inter" font-size="10" font-weight="800" text-anchor="middle" x="0" y="3.5">8.7</text>
+</g>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Understand why content performs or fails.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 09/21</span></div>
+<div class="rarity">Uncommon</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="2"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Performance Analyser</div>
+<div class="back-meta">L2 · Optimise</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p10"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a social media analyst.
+
+Analyse this LinkedIn post:
+
+<span class="var">[PASTE]</span>
+<span class="tok">Evaluate:</span>
+– Hook strength
+– Clarity
+– Engagement potential
+
+<span class="tok">Provide:</span>
+– Score out of 10
+– What works
+– What to improve
+– Rewrite suggestion</div>
+<textarea class="sr-only" id="p10" readonly="">Act as a social media analyst.
+
+Analyse this LinkedIn post:
+
+[PASTE]
+
+Evaluate:
+- Hook strength
+- Clarity
+- Engagement potential
+
+Provide:
+- Score out of 10
+- What works
+- What to improve
+- Rewrite suggestion</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Use consistently across posts.</li>
+<li>Look for patterns.</li>
+<li>Focus on hook quality.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L3</strong>
+                  Compare 2 posts side by side.
+                </div>
+</div>
+</div>
+</div></div></div></div>
+<div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="2" role="button" tabindex="0">
+<div class="contrail"><svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="28" y2="28"></line><line stroke="url(#trail-a)" stroke-width="2.2" x1="80" x2="780" y1="46" y2="46"></line><line stroke="url(#trail-c)" stroke-width="1.4" x1="40" x2="640" y1="62" y2="62"></line></svg><svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line><line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="760" y1="60" y2="60"></line></svg></div>
+<div class="front-frame"><div class="top-bar"><div class="level"><span class="level-dot"></span><span>L2 — Optimise</span></div><div class="type-pill">Localisation</div></div>
+<div class="title-block"><div class="eyebrow">Play Card · 10</div><h1 class="title">Translate Campaign<span class="line2">Assets</span></h1><p class="subtitle">Localise copy so it sounds written for the market, not translated into it.</p></div>
+<div class="visual"><svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="74" rx="8" stroke="#10CFC9" stroke-width="1.4" width="74" x="40" y="40"></rect><text fill="#10CFC9" font-family="Inter" font-size="22" font-weight="800" text-anchor="middle" x="77" y="84">EN</text><path d="M 120 77 L 152 77" stroke="#10CFC9" stroke-width="1.5"></path><path d="M 146 73 L 152 77 L 146 81" fill="none" stroke="#10CFC9" stroke-width="1.5"></path><rect fill="none" height="74" rx="8" stroke="#009845" stroke-width="1.4" width="74" x="158" y="40"></rect><text fill="#009845" font-family="Inter" font-size="18" font-weight="800" text-anchor="middle" x="195" y="84">LOC</text></svg></div>
+<div class="tagline"><div class="tagline-mark"></div><div class="tagline-text">Adapt campaign copy without losing intent, clarity or tone.</div></div>
+<div class="bottom-row"><div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 10/21</span></div><div class="rarity">Uncommon</div></div><div class="card-hint">Tap to flip</div></div></div>
+<div class="card back card-face back-face" data-level="2"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button><div class="back-contrail"><svg preserveaspectratio="none" viewbox="0 0 420 60"><line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line><line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line><line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line></svg></div>
+<div class="back-inner"><div class="back-head"><div class="back-title">Translate Campaign Assets</div><div class="back-meta">L2 · Optimise</div></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Prompt</span><button class="copy-btn" data-target="p16"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button></div>
+<div class="prompt-box"><span class="tok">Act as</span> a native B2B field marketing translator.
+
+Translate the asset below into <span class="var">[language / market]</span>.
+
+<span class="tok">Requirements:</span>
+– Preserve meaning, not literal wording
+– Use natural executive tone
+– Keep CTA clear
+– Flag anything that should be adapted, not translated
+
+<span class="tok">Asset:</span>
+<span class="var">[PASTE]</span></div>
+<textarea class="sr-only" id="p16" readonly="">Act as a native B2B field marketing translator.
+
+Translate the asset below into [language / market].
+
+Requirements:
+- Preserve meaning, not literal wording
+- Use natural executive tone
+- Keep CTA clear
+- Flag anything that should be adapted, not translated
+
+Asset:
+[PASTE]</textarea></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Pro Tips</span></div><ul class="tips"><li>Tell the model which market, not just which language.</li><li>Check event names and product names separately.</li><li>Ask it to flag awkward literal translations.</li></ul></div>
+<div class="upgrade"><div class="upgrade-icon">↑</div><div class="upgrade-text"><strong>Upgrade → L3</strong> Ask for a reviewer’s note explaining the main localisation choices.</div></div></div></div></div></div></div>
+<div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="2" role="button" tabindex="0">
+<div class="contrail"><svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="30" y2="30"></line><line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="780" y1="48" y2="48"></line><line stroke="url(#trail-c)" stroke-width="1.3" x1="20" x2="620" y1="66" y2="66"></line></svg><svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="40" y2="40"></line><line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="60" y2="60"></line></svg></div>
+<div class="front-frame"><div class="top-bar"><div class="level"><span class="level-dot"></span><span>L2 — Optimise</span></div><div class="type-pill">Content</div></div>
+<div class="title-block"><div class="eyebrow">Play Card · 11</div><h1 class="title">Blog Post<span class="line2">Writer</span></h1><p class="subtitle">Turn a topic or event angle into a readable blog post with structure and substance.</p></div>
+<div class="visual"><svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="108" rx="6" stroke="#10CFC9" stroke-width="1.4" width="138" x="66" y="26"></rect><rect fill="#10CFC9" height="4" rx="2" width="74" x="82" y="44"></rect><rect fill="rgba(255,255,255,.42)" height="3" rx="1.5" width="102" x="82" y="58"></rect><rect fill="rgba(255,255,255,.3)" height="3" rx="1.5" width="92" x="82" y="66"></rect><rect fill="rgba(255,255,255,.42)" height="3" rx="1.5" width="94" x="82" y="82"></rect><rect fill="rgba(255,255,255,.3)" height="3" rx="1.5" width="82" x="82" y="90"></rect><rect fill="#009845" height="16" rx="8" width="50" x="82" y="106"></rect></svg></div>
+<div class="tagline"><div class="tagline-mark"></div><div class="tagline-text">Go from idea to publishable draft faster.</div></div>
+<div class="bottom-row"><div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 11/21</span></div><div class="rarity">Uncommon</div></div><div class="card-hint">Tap to flip</div></div></div>
+<div class="card back card-face back-face" data-level="2"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button><div class="back-contrail"><svg preserveaspectratio="none" viewbox="0 0 420 60"><line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line><line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line><line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line></svg></div>
+<div class="back-inner"><div class="back-head"><div class="back-title">Blog Post Writer</div><div class="back-meta">L2 · Optimise</div></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Prompt</span><button class="copy-btn" data-target="p17"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button></div>
+<div class="prompt-box"><span class="tok">Act as</span> a B2B content marketer.
+
+Write a blog post about <span class="var">[topic]</span>.
+
+Audience: <span class="var">[persona]</span>
+Goal: <span class="var">[educate / create demand / support a campaign]</span>
+<span class="tok">Deliver:</span>
+– Title
+– Short intro
+– 3 clear sections with subheads
+– Conclusion with CTA
+
+Keep it journalistic, specific and free of buzzwords.</div>
+<textarea class="sr-only" id="p17" readonly="">Act as a B2B content marketer.
+
+Write a blog post about [topic].
+
+Audience: [persona]
+Goal: [educate / create demand / support a campaign]
+
+Deliver:
+- Title
+- Short intro
+- 3 clear sections with subheads
+- Conclusion with CTA
+
+Keep it journalistic, specific and free of buzzwords.</textarea></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Pro Tips</span></div><ul class="tips"><li>Anchor the post in one clear argument.</li><li>Ask for subheads before drafting the full copy.</li><li>Cut any sentence that sounds like brochure language.</li></ul></div>
+<div class="upgrade"><div class="upgrade-icon">↑</div><div class="upgrade-text"><strong>Upgrade → L3</strong> Ask for companion LinkedIn and email assets from the same draft.</div></div></div></div></div></div></div>
+<div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="2" role="button" tabindex="0">
+<div class="contrail"><svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="32" y2="32"></line><line stroke="url(#trail-a)" stroke-width="2.2" x1="100" x2="780" y1="50" y2="50"></line><line stroke="url(#trail-c)" stroke-width="1.3" x1="40" x2="660" y1="68" y2="68"></line></svg><svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line><line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="60" y2="60"></line></svg></div>
+<div class="front-frame"><div class="top-bar"><div class="level"><span class="level-dot"></span><span>L2 — Optimise</span></div><div class="type-pill">Email</div></div>
+<div class="title-block"><div class="eyebrow">Play Card · 12</div><h1 class="title">Subject Line<span class="line2">Generator</span></h1><p class="subtitle">Generate sharper subject lines and pressure-test which angle earns the open.</p></div>
+<div class="visual"><svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="62" rx="8" stroke="#10CFC9" stroke-width="1.4" width="186" x="42" y="44"></rect><rect fill="#10CFC9" height="4" rx="2" width="88" x="58" y="58"></rect><rect fill="rgba(255,255,255,.32)" height="3" rx="1.5" width="126" x="58" y="72"></rect><circle cx="208" cy="75" fill="#009845" r="14"></circle><path d="M 201 75 L 206 80 L 216 69" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg></div>
+<div class="tagline"><div class="tagline-mark"></div><div class="tagline-text">Test the angle before you send the email.</div></div>
+<div class="bottom-row"><div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 12/21</span></div><div class="rarity">Uncommon</div></div><div class="card-hint">Tap to flip</div></div></div>
+<div class="card back card-face back-face" data-level="2"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button><div class="back-contrail"><svg preserveaspectratio="none" viewbox="0 0 420 60"><line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line><line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line><line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line></svg></div>
+<div class="back-inner"><div class="back-head"><div class="back-title">Subject Line Generator</div><div class="back-meta">L2 · Optimise</div></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Prompt</span><button class="copy-btn" data-target="p18"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button></div>
+<div class="prompt-box"><span class="tok">Act as</span> an email strategist.
+
+Generate subject lines and preheaders for <span class="var">[campaign / event]</span>.
+
+Audience: <span class="var">[persona]</span>
+Tone: <span class="var">[understated / direct / provocative]</span>
+<span class="tok">Deliver:</span>
+– 10 subject lines
+– Matching preheaders
+– 3 strongest options with short rationale</div>
+<textarea class="sr-only" id="p18" readonly="">Act as an email strategist.
+
+Generate subject lines and preheaders for [campaign / event].
+
+Audience: [persona]
+Tone: [understated / direct / provocative]
+
+Deliver:
+- 10 subject lines
+- Matching preheaders
+- 3 strongest options with short rationale</textarea></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Pro Tips</span></div><ul class="tips"><li>Judge subject lines with the preheader, not alone.</li><li>Push for distinct angles, not minor word swaps.</li><li>Ask which options suit an executive audience best.</li></ul></div>
+<div class="upgrade"><div class="upgrade-icon">↑</div><div class="upgrade-text"><strong>Upgrade → L3</strong> Ask for subject lines grouped by angle: urgency, tension, outcome and curiosity.</div></div></div></div></div></div></div><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="2" role="button" tabindex="0">
+<div class="contrail"><svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="32" y2="32"></line><line stroke="url(#trail-a)" stroke-width="2.2" x1="100" x2="780" y1="50" y2="50"></line><line stroke="url(#trail-c)" stroke-width="1.3" x1="40" x2="660" y1="68" y2="68"></line></svg><svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line><line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="60" y2="60"></line></svg></div>
+<div class="front-frame"><div class="top-bar"><div class="level"><span class="level-dot"></span><span>L2 — Optimise</span></div><div class="type-pill">Content</div></div>
+<div class="title-block"><div class="eyebrow">Play Card · 13</div><h1 class="title">SEO<span class="line2">Optimiser</span></h1><p class="subtitle">Sharpen copy for search visibility without turning it into keyword soup.</p></div>
+<div class="visual"><svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<circle cx="78" cy="74" fill="none" r="26" stroke="#10CFC9" stroke-opacity=".8" stroke-width="1.5"></circle>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-width="1.8" x1="96" x2="124" y1="92" y2="120"></line>
+<rect fill="rgba(255,255,255,0.06)" height="16" rx="4" stroke="#009845" stroke-opacity=".7" stroke-width="1" width="78" x="138" y="44"></rect>
+<rect fill="#009845" height="4" rx="2" width="24" x="148" y="50"></rect>
+<rect fill="rgba(255,255,255,0.05)" height="14" rx="4" stroke="#10CFC9" stroke-opacity=".45" stroke-width="1" width="92" x="138" y="70"></rect>
+<rect fill="#10CFC9" height="3" opacity=".9" rx="1.5" width="46" x="148" y="75"></rect>
+<rect fill="rgba(255,255,255,0.05)" height="14" rx="4" stroke="#10CFC9" stroke-opacity=".35" stroke-width="1" width="84" x="138" y="94"></rect>
+<rect fill="#10CFC9" height="3" opacity=".7" rx="1.5" width="52" x="148" y="99"></rect>
+<text fill="rgba(255,255,255,0.58)" font-family="Inter" font-size="7" font-weight="700" letter-spacing="1.5" x="56" y="132">SEARCH</text>
+<text fill="rgba(255,255,255,0.58)" font-family="Inter" font-size="7" font-weight="700" letter-spacing="1.5" x="144" y="132">VISIBILITY</text>
+</svg></div>
+<div class="tagline"><div class="tagline-mark"></div><div class="tagline-text">Make campaign content easier to find and stronger to read.</div></div>
+<div class="bottom-row"><div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 13/21</span></div><div class="rarity">Uncommon</div></div><div class="card-hint">Tap to flip</div></div></div>
+<div class="card back card-face back-face" data-level="2"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button><div class="back-contrail"><svg preserveaspectratio="none" viewbox="0 0 420 60"><line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line><line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line><line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line></svg></div>
+<div class="back-inner"><div class="back-head"><div class="back-title">SEO Optimiser</div><div class="back-meta">L2 · Optimise</div></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Prompt</span><button class="copy-btn" data-target="p21"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button></div>
+<div class="prompt-box"><span class="tok">Act as</span> a B2B content strategist with SEO expertise.
+
+Optimise the copy below for search visibility without making it sound robotic.
+
+Asset type: <span class="var">[blog / landing page / web copy]</span>
+Audience: <span class="var">[persona]</span>
+Primary keyword: <span class="var">[keyword]</span>
+Secondary keywords: <span class="var">[keywords]</span>
+
+<span class="tok">Improve:</span>
+– Headline and subheads
+– Keyword placement
+– Clarity and readability
+– Meta title and meta description
+
+<span class="tok">Return:</span>
+– Optimised copy
+– Suggested meta title
+– Suggested meta description
+– 3 SEO improvements made and why
+
+<span class="tok">Copy:</span>
+<span class="var">[PASTE]</span></div>
+<textarea class="sr-only" id="p21" readonly="">Act as a B2B content strategist with SEO expertise.
+
+Optimise the copy below for search visibility without making it sound robotic.
+
+Asset type: [blog / landing page / web copy]
+Audience: [persona]
+Primary keyword: [keyword]
+Secondary keywords: [keywords]
+
+Improve:
+- Headline and subheads
+- Keyword placement
+- Clarity and readability
+- Meta title and meta description
+
+Return:
+- Optimised copy
+- Suggested meta title
+- Suggested meta description
+- 3 SEO improvements made and why
+
+Copy:
+[PASTE]</textarea></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Pro Tips</span></div><ul class="tips"><li>Optimise for humans first, then search.</li><li>Use one primary keyword and support it naturally.</li><li>Strong structure usually improves both SEO and readability.</li></ul></div>
+<div class="upgrade"><div class="upgrade-icon">↑</div><div class="upgrade-text"><strong>Upgrade → L3</strong>
+                  Pair with Blog Post Writer or Content Multiplier.
+                </div></div></div></div></div></div></div>
+</div>
+</div><div aria-labelledby="tab-3" class="tab-panel" hidden="" id="panel-3" role="tabpanel">
+<div class="tab-panel-head" data-level="3">
+<div>
+<div class="level-chip"><span class="dot"></span> L3 — Orchestrate</div>
+<h2 class="tab-panel-title" style="padding-top:25px;">Orchestrate</h2>
+<p class="tab-panel-sub">Multiply outputs, coordinate across channels</p>
+</div>
+<div class="tab-panel-count">4 Cards</div>
+</div>
+<div class="cards-grid cards-grid--interactive"><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="3" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="30" y2="30"></line>
+<line stroke="url(#trail-a)" stroke-width="2.2" x1="80" x2="780" y1="48" y2="48"></line>
+<line stroke="url(#trail-c)" stroke-width="1.4" x1="40" x2="640" y1="66" y2="66"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="760" y1="60" y2="60"></line>
+<line stroke="url(#trail-c)" stroke-width="1.2" x1="120" x2="700" y1="82" y2="82"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L3 — Orchestrate</span></div>
+<div class="type-pill">Content</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 14</div>
+<h1 class="title">Content<span class="line2">Multiplier</span></h1>
+<p class="subtitle">Turn one asset into many — posts, quotes, email snippets, carousels.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Source node -->
+<circle cx="50" cy="80" fill="#10CFC9" r="14"></circle>
+<text fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="7" font-weight="700" letter-spacing="1.5" text-anchor="middle" x="50" y="108">SOURCE</text>
+<!-- Branching paths -->
+<path d="M 64 80 Q 120 40 190 40" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"></path>
+<path d="M 64 80 Q 120 65 190 65" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"></path>
+<path d="M 64 80 Q 120 85 190 90" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"></path>
+<path d="M 64 80 Q 120 105 190 115" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"></path>
+<!-- Output nodes -->
+<g transform="translate(190,40)">
+<circle fill="rgba(255,255,255,0.9)" r="7"></circle>
+<text fill="rgba(255,255,255,0.9)" font-family="Inter" font-size="8" font-weight="600" x="14" y="3">3× LinkedIn</text>
+</g>
+<g transform="translate(190,65)">
+<circle fill="rgba(255,255,255,0.85)" r="7"></circle>
+<text fill="rgba(255,255,255,0.85)" font-family="Inter" font-size="8" font-weight="600" x="14" y="3">3× Quotes</text>
+</g>
+<g transform="translate(190,90)">
+<circle fill="rgba(255,255,255,0.8)" r="7"></circle>
+<text fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="8" font-weight="600" x="14" y="3">1× Email</text>
+</g>
+<g transform="translate(190,115)">
+<circle fill="rgba(255,255,255,0.75)" r="7"></circle>
+<text fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="8" font-weight="600" x="14" y="3">1× Carousel</text>
+</g>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Turn one piece of content into a full campaign.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 14/21</span></div>
+<div class="rarity">Rare</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="3"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Content Multiplier</div>
+<div class="back-meta">L3 · Orchestrate</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p04"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a content strategist.
+
+From the input below, create:
+– 3 LinkedIn posts
+– 3 short quotes
+– 1 email snippet
+– 1 carousel outline (4 slides)
+
+Audience: <span class="var">[persona]</span>
+Tone: insightful, not promotional
+
+<span class="tok">Input:</span>
+<span class="var">[CONTENT / TRANSCRIPT]</span></div>
+<textarea class="sr-only" id="p04" readonly="">Act as a content strategist.
+
+From the input below, create:
+- 3 LinkedIn posts
+- 3 short quotes
+- 1 email snippet
+- 1 carousel outline (4 slides)
+
+Audience: [persona]
+Tone: insightful, not promotional
+
+Input:
+[CONTENT / TRANSCRIPT]</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Always define outputs clearly.</li>
+<li>Prioritise insights, not summaries.</li>
+<li>This replaces hours of manual work.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L4</strong>
+                  Add: "prioritise highest-impact insights only".
+                </div>
+</div>
+</div>
+</div></div></div></div><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="3" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="700" y1="32" y2="32"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="80" x2="780" y1="50" y2="50"></line>
+<line stroke="url(#trail-c)" stroke-width="1.3" x1="40" x2="640" y1="68" y2="68"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="42" y2="42"></line>
+<line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="62" y2="62"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L3 — Orchestrate</span></div>
+<div class="type-pill">ABX</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 15</div>
+<h1 class="title">ABX<span class="line2">Personaliser</span></h1>
+<p class="subtitle">1:1 account messaging that reads human — not automated.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Concentric focus rings on single target -->
+<circle cx="135" cy="80" fill="none" r="60" stroke="rgba(255,255,255,0.15)" stroke-dasharray="3 4" stroke-width="0.8"></circle>
+<circle cx="135" cy="80" fill="none" r="42" stroke="rgba(255,255,255,0.25)" stroke-width="0.8"></circle>
+<circle cx="135" cy="80" fill="none" r="26" stroke="#10CFC9" stroke-opacity=".7" stroke-width="1.5"></circle>
+<!-- Crosshair -->
+<line stroke="#10CFC9" stroke-opacity=".6" stroke-width="1" x1="135" x2="135" y1="36" y2="54"></line>
+<line stroke="#10CFC9" stroke-opacity=".6" stroke-width="1" x1="135" x2="135" y1="106" y2="124"></line>
+<line stroke="#10CFC9" stroke-opacity=".6" stroke-width="1" x1="91" x2="109" y1="80" y2="80"></line>
+<line stroke="#10CFC9" stroke-opacity=".6" stroke-width="1" x1="161" x2="179" y1="80" y2="80"></line>
+<!-- Target node -->
+<circle cx="135" cy="80" fill="rgba(255,255,255,0.95)" r="10"></circle>
+<circle cx="135" cy="80" fill="#009845" r="5"></circle>
+<!-- Company label -->
+<text fill="rgba(255,255,255,0.65)" font-family="Inter" font-size="7" font-weight="700" letter-spacing="1.5" text-anchor="middle" x="135" y="148">1 ACCOUNT · 1 MESSAGE</text>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Tailored messaging that feels human, not automated.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 15/21</span></div>
+<div class="rarity">Rare</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="3"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">ABX Personaliser</div>
+<div class="back-meta">L3 · Orchestrate</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p06"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a strategic account marketer.
+
+Create a personalised outreach message for:
+
+Account: <span class="var">[company]</span>
+Industry: <span class="var">[industry]</span>
+Persona: <span class="var">[role]</span>
+<span class="tok">Include:</span>
+– Likely priorities
+– Relevant angle
+– Short email (under 100 words)
+
+Avoid generic messaging.</div>
+<textarea class="sr-only" id="p06" readonly="">Act as a strategic account marketer.
+
+Create a personalised outreach message for:
+
+Account: [company]
+Industry: [industry]
+Persona: [role]
+
+Include:
+- Likely priorities
+- Relevant angle
+- Short email (under 100 words)
+
+Avoid generic messaging.</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Add real account context when possible.</li>
+<li>Use industry pressure points.</li>
+<li>Always review before sending.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L4</strong>
+                  Add: "based on recent company initiatives".
+                </div>
+</div>
+</div>
+</div></div></div></div><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="3" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="32" y2="32"></line>
+<line stroke="url(#trail-a)" stroke-width="2.2" x1="100" x2="780" y1="50" y2="50"></line>
+<line stroke="url(#trail-c)" stroke-width="1.3" x1="40" x2="660" y1="68" y2="68"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="42" y2="42"></line>
+<line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="62" y2="62"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L3 — Orchestrate</span></div>
+<div class="type-pill">Ideation</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 16</div>
+<h1 class="title">Campaign<span class="line2">Ideator</span></h1>
+<p class="subtitle">Break out of repetitive campaign thinking. Generate ideas worth running.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Radiating burst from center -->
+<g transform="translate(135,80)">
+<line stroke="#10CFC9" stroke-linecap="round" stroke-width="1.5" x1="0" x2="0" y1="-50" y2="-30"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-opacity=".8" stroke-width="1.5" x1="35" x2="21" y1="-35" y2="-21"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-width="1.5" x1="50" x2="30" y1="0" y2="0"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-opacity=".8" stroke-width="1.5" x1="35" x2="21" y1="35" y2="21"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-width="1.5" x1="0" x2="0" y1="50" y2="30"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-opacity=".8" stroke-width="1.5" x1="-35" x2="-21" y1="35" y2="21"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-width="1.5" x1="-50" x2="-30" y1="0" y2="0"></line>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-opacity=".8" stroke-width="1.5" x1="-35" x2="-21" y1="-35" y2="-21"></line>
+<!-- Smaller rays -->
+<line stroke="rgba(255,255,255,0.4)" stroke-linecap="round" stroke-width="1" x1="17" x2="10" y1="-43" y2="-26"></line>
+<line stroke="rgba(255,255,255,0.4)" stroke-linecap="round" stroke-width="1" x1="43" x2="26" y1="-17" y2="-10"></line>
+<line stroke="rgba(255,255,255,0.4)" stroke-linecap="round" stroke-width="1" x1="43" x2="26" y1="17" y2="10"></line>
+<line stroke="rgba(255,255,255,0.4)" stroke-linecap="round" stroke-width="1" x1="17" x2="10" y1="43" y2="26"></line>
+<line stroke="rgba(255,255,255,0.4)" stroke-linecap="round" stroke-width="1" x1="-17" x2="-10" y1="43" y2="26"></line>
+<line stroke="rgba(255,255,255,0.4)" stroke-linecap="round" stroke-width="1" x1="-43" x2="-26" y1="17" y2="10"></line>
+<line stroke="rgba(255,255,255,0.4)" stroke-linecap="round" stroke-width="1" x1="-43" x2="-26" y1="-17" y2="-10"></line>
+<line stroke="rgba(255,255,255,0.4)" stroke-linecap="round" stroke-width="1" x1="-17" x2="-10" y1="-43" y2="-26"></line>
+<!-- Center -->
+<circle fill="rgba(0,0,0,0.25)" r="14" stroke="rgba(255,255,255,0.9)" stroke-width="1.2"></circle>
+<text fill="rgba(255,255,255,0.95)" font-family="Inter" font-size="11" font-weight="800" text-anchor="middle" x="0" y="3.5">5×</text>
+</g>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Break out of repetitive campaign thinking.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 16/21</span></div>
+<div class="rarity">Rare</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="3"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Campaign Ideator</div>
+<div class="back-meta">L3 · Orchestrate</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p11"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a creative field marketer.
+
+Generate 5 campaign ideas for:
+
+Goal: <span class="var">[objective]</span>
+Audience: <span class="var">[persona]</span>
+Theme: <span class="var">[topic]</span>
+<span class="tok">For each:</span>
+– Concept
+– Why it works
+– Suggested channels
+
+Avoid generic ideas.</div>
+<textarea class="sr-only" id="p11" readonly="">Act as a creative field marketer.
+
+Generate 5 campaign ideas for:
+
+Goal: [objective]
+Audience: [persona]
+Theme: [topic]
+
+For each:
+- Concept
+- Why it works
+- Suggested channels
+
+Avoid generic ideas.</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Push for unexpected angles.</li>
+<li>Combine with real insights.</li>
+<li>Use for brainstorming sessions.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L4</strong>
+                  Ask: "which idea is most differentiated and why?".
+                </div>
+</div>
+</div>
+</div></div></div></div>
+<div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="3" role="button" tabindex="0">
+<div class="contrail"><svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="30" y2="30"></line><line stroke="url(#trail-a)" stroke-width="2.2" x1="80" x2="780" y1="48" y2="48"></line><line stroke="url(#trail-c)" stroke-width="1.4" x1="40" x2="640" y1="66" y2="66"></line></svg><svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140"><line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line><line stroke="url(#trail-a)" stroke-width="2" x1="60" x2="760" y1="60" y2="60"></line></svg></div>
+<div class="front-frame"><div class="top-bar"><div class="level"><span class="level-dot"></span><span>L3 — Orchestrate</span></div><div class="type-pill">Campaign</div></div>
+<div class="title-block"><div class="eyebrow">Play Card · 17</div><h1 class="title">Campaign<span class="line2">Repurposer</span></h1><p class="subtitle">Adapt one core asset into role-specific, channel-ready derivatives without starting from zero.</p></div>
+<div class="visual"><svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="52" rx="6" stroke="#10CFC9" stroke-width="1.4" width="64" x="26" y="54"></rect><path d="M 92 80 Q 126 48 164 48" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.2"></path><path d="M 92 80 Q 126 80 164 80" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.2"></path><path d="M 92 80 Q 126 112 164 112" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.2"></path><rect fill="none" height="24" rx="4" stroke="#10CFC9" stroke-opacity=".8" width="58" x="170" y="34"></rect><rect fill="none" height="24" rx="4" stroke="#009845" stroke-opacity=".9" width="58" x="170" y="68"></rect><rect fill="none" height="24" rx="4" stroke="#10CFC9" stroke-opacity=".55" width="58" x="170" y="102"></rect></svg></div>
+<div class="tagline"><div class="tagline-mark"></div><div class="tagline-text">Repurpose once. Deploy everywhere with more control.</div></div>
+<div class="bottom-row"><div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 17/21</span></div><div class="rarity">Rare</div></div><div class="card-hint">Tap to flip</div></div></div>
+<div class="card back card-face back-face" data-level="3"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button><div class="back-contrail"><svg preserveaspectratio="none" viewbox="0 0 420 60"><line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line><line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line><line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line></svg></div>
+<div class="back-inner"><div class="back-head"><div class="back-title">Campaign Repurposer</div><div class="back-meta">L3 · Orchestrate</div></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Prompt</span><button class="copy-btn" data-target="p19"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button></div>
+<div class="prompt-box"><span class="tok">Act as</span> a campaign strategist.
+
+Repurpose the asset below into a coordinated campaign set.
+
+Audience: <span class="var">[persona]</span>
+Channels: <span class="var">[email / LinkedIn / landing page / sales follow-up]</span>
+<span class="tok">Create:</span>
+– 1 core message
+– 1 email version
+– 2 LinkedIn posts
+– 1 landing page CTA block
+– 1 sales follow-up message
+
+Input: <span class="var">[PASTE ASSET]</span></div>
+<textarea class="sr-only" id="p19" readonly="">Act as a campaign strategist.
+
+Repurpose the asset below into a coordinated campaign set.
+
+Audience: [persona]
+Channels: [email / LinkedIn / landing page / sales follow-up]
+
+Create:
+- 1 core message
+- 1 email version
+- 2 LinkedIn posts
+- 1 landing page CTA block
+- 1 sales follow-up message
+
+Input: [PASTE ASSET]</textarea></div>
+<div class="section"><div class="section-label"><span class="section-label-left">Pro Tips</span></div><ul class="tips"><li>Define the source asset clearly before repurposing.</li><li>Keep one message spine across all outputs.</li><li>Ask the model to adapt for role and channel, not just shorten.</li></ul></div>
+<div class="upgrade"><div class="upgrade-icon">↑</div><div class="upgrade-text"><strong>Upgrade → L4</strong> Ask for channel hierarchy and sequencing recommendations too.</div></div></div></div></div></div></div>
+</div>
+</div><div aria-labelledby="tab-4" class="tab-panel" hidden="" id="panel-4" role="tabpanel">
+<div class="tab-panel-head" data-level="4">
+<div>
+<div class="level-chip"><span class="dot"></span> L4 — Strategise</div>
+<h2 class="tab-panel-title" style="padding-top:25px;">Strategise</h2>
+<p class="tab-panel-sub">Foundations that shape entire campaigns</p>
+</div>
+<div class="tab-panel-count">4 Cards</div>
+</div>
+<div class="cards-grid cards-grid--interactive"><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="4" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="28" y2="28"></line>
+<line stroke="url(#trail-a)" stroke-width="2.2" x1="80" x2="780" y1="46" y2="46"></line>
+<line stroke="url(#trail-c)" stroke-width="1.4" x1="40" x2="640" y1="64" y2="64"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="80" x2="760" y1="60" y2="60"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L4 — Strategise</span></div>
+<div class="type-pill">Strategy</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 18</div>
+<h1 class="title">Messaging<span class="line2">Architect</span></h1>
+<p class="subtitle">Define what your campaign actually stands for — before any asset is built.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Pyramid/architecture: core message anchored, supporting angles above -->
+<!-- Base: core message -->
+<rect fill="none" height="22" rx="3" stroke="#10CFC9" stroke-width="1.5" width="130" x="70" y="110"></rect>
+<text fill="#10CFC9" font-family="Inter" font-size="8" font-weight="700" letter-spacing="1.5" text-anchor="middle" x="135" y="125">CORE MESSAGE</text>
+<!-- Three supporting angles -->
+<rect fill="none" height="22" rx="3" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" width="60" x="45" y="70"></rect>
+<rect fill="none" height="22" rx="3" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" width="60" x="105" y="70"></rect>
+<rect fill="none" height="22" rx="3" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" width="60" x="165" y="70"></rect>
+<!-- Connecting lines from supports to core -->
+<line stroke="rgba(16,207,201,0.4)" stroke-dasharray="2 2" stroke-width="1" x1="75" x2="95" y1="92" y2="110"></line>
+<line stroke="rgba(16,207,201,0.4)" stroke-dasharray="2 2" stroke-width="1" x1="135" x2="135" y1="92" y2="110"></line>
+<line stroke="rgba(16,207,201,0.4)" stroke-dasharray="2 2" stroke-width="1" x1="195" x2="175" y1="92" y2="110"></line>
+<!-- Top: problem / why now -->
+<rect fill="#009845" fill-opacity=".85" height="22" rx="3" stroke="#009845" stroke-width="1.2" width="80" x="95" y="30"></rect>
+<text fill="#ffffff" font-family="Inter" font-size="8" font-weight="700" letter-spacing="1.5" text-anchor="middle" x="135" y="45">WHY NOW</text>
+<line stroke="rgba(16,207,201,0.4)" stroke-dasharray="2 2" stroke-width="1" x1="135" x2="135" y1="52" y2="70"></line>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Define what your campaign actually stands for.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 18/21</span></div>
+<div class="rarity">Epic</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="4"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Messaging Architect</div>
+<div class="back-meta">L4 · Strategise</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p08"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a senior marketing strategist.
+
+Refine messaging for:
+
+Campaign: <span class="var">[name]</span>
+Audience: <span class="var">[persona]</span>
+Goal: <span class="var">[objective]</span>
+<span class="tok">Deliver:</span>
+– Core message (1 sentence)
+– 3 supporting angles
+– Key problem we solve
+– Why it matters now
+
+Be specific and differentiated.</div>
+<textarea class="sr-only" id="p08" readonly="">Act as a senior marketing strategist.
+
+Refine messaging for:
+
+Campaign: [name]
+Audience: [persona]
+Goal: [objective]
+
+Deliver:
+- Core message (1 sentence)
+- 3 supporting angles
+- Key problem we solve
+- Why it matters now
+
+Be specific and differentiated.</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Use before creating any asset.</li>
+<li>Simplicity beats complexity.</li>
+<li>Challenge weak positioning.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L4+</strong>
+                  Ask: "what would a competitor say differently?".
+                </div>
+</div>
+</div>
+</div></div></div></div><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="4" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="30" y2="30"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="100" x2="780" y1="48" y2="48"></line>
+<line stroke="url(#trail-c)" stroke-width="1.3" x1="40" x2="640" y1="66" y2="66"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="1.8" x1="80" x2="760" y1="60" y2="60"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L4 — Strategise</span></div>
+<div class="type-pill">Research</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 19</div>
+<h1 class="title">Persona<span class="line2">Insight Builder</span></h1>
+<p class="subtitle">Stop guessing what your audience cares about.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Persona silhouette + data rays -->
+<!-- Head -->
+<circle cx="135" cy="58" fill="none" r="16" stroke="#10CFC9" stroke-width="1.5"></circle>
+<!-- Shoulders -->
+<path d="M 105 110 Q 135 78 165 110" fill="none" stroke="#10CFC9" stroke-linecap="round" stroke-width="1.5"></path>
+<!-- Data rays extending outward to labels -->
+<line stroke="rgba(255,255,255,0.5)" stroke-width="1" x1="85" x2="55" y1="45" y2="35"></line>
+<line stroke="rgba(255,255,255,0.5)" stroke-width="1" x1="85" x2="55" y1="60" y2="60"></line>
+<line stroke="rgba(255,255,255,0.5)" stroke-width="1" x1="85" x2="55" y1="75" y2="85"></line>
+<line stroke="rgba(255,255,255,0.5)" stroke-width="1" x1="185" x2="215" y1="45" y2="35"></line>
+<line stroke="rgba(255,255,255,0.5)" stroke-width="1" x1="185" x2="215" y1="60" y2="60"></line>
+<line stroke="rgba(255,255,255,0.5)" stroke-width="1" x1="185" x2="215" y1="75" y2="85"></line>
+<!-- Label dots -->
+<circle cx="50" cy="35" fill="#10CFC9" r="2.5"></circle>
+<circle cx="50" cy="60" fill="#10CFC9" r="2.5"></circle>
+<circle cx="50" cy="85" fill="#10CFC9" r="2.5"></circle>
+<circle cx="220" cy="35" fill="#009845" r="2.5"></circle>
+<circle cx="220" cy="60" fill="#009845" r="2.5"></circle>
+<circle cx="220" cy="85" fill="#009845" r="2.5"></circle>
+<!-- Labels -->
+<text fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="7" font-weight="600" text-anchor="end" x="45" y="38">Priorities</text>
+<text fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="7" font-weight="600" text-anchor="end" x="45" y="63">Challenges</text>
+<text fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="7" font-weight="600" text-anchor="end" x="45" y="88">KPIs</text>
+<text fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="7" font-weight="600" x="225" y="38">Triggers</text>
+<text fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="7" font-weight="600" x="225" y="63">Blockers</text>
+<text fill="rgba(255,255,255,0.75)" font-family="Inter" font-size="7" font-weight="600" x="225" y="88">Buying</text>
+<!-- Pulse dot -->
+<circle cx="135" cy="58" fill="#009845" r="4"></circle>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Stop guessing what your audience cares about.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 19/21</span></div>
+<div class="rarity">Epic</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="4"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Persona Insight Builder</div>
+<div class="back-meta">L4 · Strategise</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p09"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a B2B marketing strategist.
+
+For this persona:
+Role: <span class="var">[role]</span>
+Industry: <span class="var">[industry]</span>
+<span class="tok">Provide:</span>
+– Top 5 priorities
+– Key challenges
+– What they care about in vendors
+– Messaging that resonates
+
+Avoid generic statements.</div>
+<textarea class="sr-only" id="p09" readonly="">Act as a B2B marketing strategist.
+
+For this persona:
+Role: [role]
+Industry: [industry]
+
+Provide:
+- Top 5 priorities
+- Key challenges
+- What they care about in vendors
+- Messaging that resonates
+
+Avoid generic statements.</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Validate with Sales insights.</li>
+<li>Use across all campaigns.</li>
+<li>Refine over time.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L4+</strong>
+                  Add: "compare with another persona".
+                </div>
+</div>
+</div>
+</div></div></div></div><div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="4" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="28" y2="28"></line>
+<line stroke="url(#trail-a)" stroke-width="2.2" x1="80" x2="780" y1="46" y2="46"></line>
+<line stroke="url(#trail-c)" stroke-width="1.4" x1="40" x2="640" y1="64" y2="64"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="80" x2="760" y1="60" y2="60"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L4 — Strategise</span></div>
+<div class="type-pill">Planning</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 20</div>
+<h1 class="title">Strategic<span class="line2">Brief Generator</span></h1>
+<p class="subtitle">Turn a vague idea into a structured campaign brief.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- Document with structured content -->
+<rect fill="rgba(255,255,255,0.06)" height="110" rx="4" stroke="#10CFC9" stroke-width="1.5" width="120" x="75" y="30"></rect>
+<!-- Title bar -->
+<rect fill="#10CFC9" height="4" rx="1.5" width="60" x="87" y="42"></rect>
+<rect fill="rgba(255,255,255,0.3)" height="2.5" rx="1" width="90" x="87" y="50"></rect>
+<!-- Section 1 -->
+<rect fill="#009845" height="2.5" rx="1" width="18" x="87" y="63"></rect>
+<rect fill="rgba(255,255,255,0.4)" height="2.5" rx="1" width="70" x="110" y="63"></rect>
+<rect fill="rgba(255,255,255,0.25)" height="2" rx="1" width="90" x="87" y="70"></rect>
+<!-- Section 2 -->
+<rect fill="#009845" height="2.5" rx="1" width="18" x="87" y="83"></rect>
+<rect fill="rgba(255,255,255,0.4)" height="2.5" rx="1" width="60" x="110" y="83"></rect>
+<rect fill="rgba(255,255,255,0.25)" height="2" rx="1" width="90" x="87" y="90"></rect>
+<!-- Section 3 -->
+<rect fill="#009845" height="2.5" rx="1" width="18" x="87" y="103"></rect>
+<rect fill="rgba(255,255,255,0.4)" height="2.5" rx="1" width="70" x="110" y="103"></rect>
+<rect fill="rgba(255,255,255,0.25)" height="2" rx="1" width="90" x="87" y="110"></rect>
+<!-- Section 4 -->
+<rect fill="#009845" height="2.5" rx="1" width="18" x="87" y="123"></rect>
+<rect fill="rgba(255,255,255,0.4)" height="2.5" rx="1" width="55" x="110" y="123"></rect>
+<rect fill="rgba(255,255,255,0.25)" height="2" rx="1" width="70" x="87" y="130"></rect>
+<!-- Corner fold -->
+<path d="M 195 30 L 195 40 L 185 40 Z" fill="#10CFC9" fill-opacity=".4"></path>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Turn a vague idea into a structured campaign brief.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 20/21</span></div>
+<div class="rarity">Epic</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="4"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Strategic Brief Generator</div>
+<div class="back-meta">L4 · Strategise</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p12"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a senior field marketing strategist.
+
+Create a campaign brief for:
+
+Objective: <span class="var">[goal]</span>
+Audience: <span class="var">[persona]</span>
+Region: <span class="var">[region]</span>
+<span class="tok">Include:</span>
+– Key message
+– Target audience breakdown
+– Suggested channels
+– Content plan
+– Success metrics
+
+Be concise and actionable.</div>
+<textarea class="sr-only" id="p12" readonly="">Act as a senior field marketing strategist.
+
+Create a campaign brief for:
+
+Objective: [goal]
+Audience: [persona]
+Region: [region]
+
+Include:
+- Key message
+- Target audience breakdown
+- Suggested channels
+- Content plan
+- Success metrics
+
+Be concise and actionable.</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Use at the start of every campaign.</li>
+<li>Align teams faster.</li>
+<li>Avoid rework later.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L4+</strong>
+                  Add: "include risks and assumptions".
+                </div>
+</div>
+</div>
+</div></div></div></div>
+<div class="card-pair card-pair--interactive"><div class="card-flip"><div class="card-flip-inner"><div aria-label="Flip card to view details" class="card front card-face front-face" data-level="4" role="button" tabindex="0">
+<div class="contrail">
+<svg class="contrail-top" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="720" y1="28" y2="28"></line>
+<line stroke="url(#trail-a)" stroke-width="2.2" x1="80" x2="780" y1="46" y2="46"></line>
+<line stroke="url(#trail-c)" stroke-width="1.4" x1="40" x2="640" y1="64" y2="64"></line>
+</svg>
+<svg class="contrail-bot" preserveaspectratio="none" viewbox="0 0 800 140">
+<line stroke="url(#trail-b)" stroke-width="1.2" x1="0" x2="680" y1="40" y2="40"></line>
+<line stroke="url(#trail-a)" stroke-width="2" x1="80" x2="760" y1="60" y2="60"></line>
+</svg>
+</div>
+<div class="front-frame">
+<div class="top-bar">
+<div class="level"><span class="level-dot"></span><span>L4 — Strategise</span></div>
+<div class="type-pill">Strategy</div>
+</div>
+<div class="title-block">
+<div class="eyebrow">Play Card · 21</div>
+<h1 class="title">Campaign<span class="line2">Challenger</span></h1>
+<p class="subtitle">Pressure-test your campaign before launch and expose weak positioning early.</p>
+</div>
+<div class="visual">
+<svg viewbox="0 0 270 160" xmlns="http://www.w3.org/2000/svg">
+<!-- target grid -->
+<circle cx="115" cy="82" fill="none" r="52" stroke="rgba(255,255,255,0.16)" stroke-width="1"></circle>
+<circle cx="115" cy="82" fill="none" r="36" stroke="rgba(255,255,255,0.24)" stroke-width="1"></circle>
+<circle cx="115" cy="82" fill="none" r="20" stroke="#10CFC9" stroke-opacity=".8" stroke-width="1.5"></circle>
+<line stroke="rgba(255,255,255,0.18)" stroke-width="1" x1="115" x2="115" y1="24" y2="140"></line>
+<line stroke="rgba(255,255,255,0.18)" stroke-width="1" x1="57" x2="173" y1="82" y2="82"></line>
+<!-- weak spots -->
+<circle cx="145" cy="56" fill="#009845" r="4"></circle>
+<circle cx="88" cy="108" fill="#10CFC9" fill-opacity=".9" r="4"></circle>
+<circle cx="126" cy="94" fill="#10CFC9" fill-opacity=".75" r="4"></circle>
+<!-- magnifier -->
+<circle cx="196" cy="72" fill="none" r="22" stroke="#10CFC9" stroke-width="1.6"></circle>
+<line stroke="#10CFC9" stroke-linecap="round" stroke-width="2" x1="212" x2="233" y1="88" y2="109"></line>
+<!-- scan beams -->
+<line stroke="#009845" stroke-opacity=".85" stroke-width="1.3" x1="178" x2="214" y1="60" y2="60"></line>
+<line stroke="#10CFC9" stroke-opacity=".7" stroke-width="1.2" x1="178" x2="210" y1="72" y2="72"></line>
+<line stroke="#10CFC9" stroke-opacity=".55" stroke-width="1.1" x1="178" x2="206" y1="84" y2="84"></line>
+<!-- label -->
+<text fill="rgba(255,255,255,0.62)" font-family="Inter" font-size="7" font-weight="700" letter-spacing="1.4" x="58" y="145">FIND THE WEAK POINT</text>
+</svg>
+</div>
+<div class="tagline">
+<div class="tagline-mark"></div>
+<div class="tagline-text">Find weaknesses before your audience does.</div>
+</div>
+<div class="bottom-row">
+<div class="qlik-mark">Qlik<span class="dot"></span><span class="division">FM · 21/21</span></div>
+<div class="rarity">Epic</div>
+</div>
+<div class="card-hint">Tap to flip</div></div>
+</div><div class="card back card-face back-face" data-level="4"><button aria-label="Close card and flip to front" class="close-btn" type="button"><svg aria-hidden="true" fill="none" viewbox="0 0 16 16"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"></path></svg></button>
+<div class="back-contrail">
+<svg preserveaspectratio="none" viewbox="0 0 420 60">
+<line stroke="url(#back-trail-a)" stroke-width="1.2" x1="0" x2="420" y1="16" y2="16"></line>
+<line stroke="url(#back-trail-b)" stroke-width="1.6" x1="0" x2="420" y1="30" y2="30"></line>
+<line stroke="url(#back-trail-a)" stroke-width="0.8" x1="0" x2="420" y1="44" y2="44"></line>
+</svg>
+</div>
+<div class="back-inner">
+<div class="back-head">
+<div class="back-title">Campaign Challenger</div>
+<div class="back-meta">L4 · Strategise</div>
+</div>
+<div class="section">
+<div class="section-label">
+<span class="section-label-left">Prompt</span>
+<button class="copy-btn" data-target="p20"><svg fill="none" viewbox="0 0 16 16"><rect height="10" rx="1.5" stroke="currentColor" stroke-width="1.4" width="9" x="4" y="4"></rect><path d="M3 11V3.5A1.5 1.5 0 0 1 4.5 2H11" stroke="currentColor" stroke-linecap="round" stroke-width="1.4"></path></svg><span>Copy</span></button>
+</div>
+<div class="prompt-box"><span class="tok">Act as</span> a critical marketing strategist.
+
+Challenge the campaign below.
+
+Campaign: <span class="var">[description]</span>
+Audience: <span class="var">[persona]</span>
+Goal: <span class="var">[objective]</span>
+<span class="tok">Evaluate:</span>
+– Is the messaging differentiated or generic?
+– What assumptions are being made?
+– What would a sceptical buyer question?
+– Where is this weak or unclear?
+
+<span class="tok">Provide:</span>
+– 3 major risks or weaknesses
+– 2 ways to strengthen the positioning
+– 1 sharper, more compelling angle
+
+Be direct. Do not be polite.</div>
+<textarea class="sr-only" id="p20" readonly="">Act as a critical marketing strategist.
+
+Challenge the campaign below.
+
+Campaign: [description]
+Audience: [persona]
+Goal: [objective]
+
+Evaluate:
+- Is the messaging differentiated or generic?
+- What assumptions are being made?
+- What would a sceptical buyer question?
+- Where is this weak or unclear?
+
+Provide:
+- 3 major risks or weaknesses
+- 2 ways to strengthen the positioning
+- 1 sharper, more compelling angle
+
+Be direct. Do not be polite.</textarea>
+</div>
+<div class="section">
+<div class="section-label"><span class="section-label-left">Pro Tips</span></div>
+<ul class="tips">
+<li>Use before launching any campaign.</li>
+<li>Invite disagreement, not validation.</li>
+<li>If it feels comfortable, it is probably weak.</li>
+</ul>
+</div>
+<div class="upgrade">
+<div class="upgrade-icon">↑</div>
+<div class="upgrade-text">
+<strong>Upgrade → L4+</strong>
+                  Test against a named competitor or alternative solution.
+                </div>
+</div>
+</div>
+</div></div></div></div>
+</div>
+</div></section><footer class="deck-footer"><strong>Qlik Field Marketing · Prompt Deck v6</strong><br/>
+ 21 cards across 4 levels: Execute · Optimise · Orchestrate · Strategise.
+  </footer>
+<script src="script.js"></script>
+</body>
+</html>
